@@ -82,7 +82,7 @@ const deleteJob = asyncHandler(async (req, res, next) => {
     } else {
       res.status(404).json({
         success: false,
-        message: `Job not found by the id: ${req.params.id}`,
+        message: `Job not found`,
       });
     }
   } catch (err) {
