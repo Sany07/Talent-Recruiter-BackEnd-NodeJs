@@ -26,23 +26,7 @@ const getJobByRecruiter = asyncHandler(async (req, res, next) => {
 // @desc Get Job All Via Applicant Id
 const getApplicantByJob = asyncHandler(async (req, res, next) => {
   console.log(req.params.id);
-  try {
-    const getApplicantByJob = await AppliedJob.find({
-      job: { _id: req.params.id },
-    });
-    if (getApplicantByJob) {
-      res.status(200).json({
-        ApplicantByJob: getApplicantByJob,
-      });
-    } else {
-      res.status(400).json({
-        message: "Something went wrong. Please try Again",
-      });
-    }
-  } catch (err) {
-    console.log(err);
-    next(err);
-  }
+
 });
 
 // @desc Post New Job Controller
