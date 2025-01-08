@@ -11,7 +11,14 @@ const blogPostSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-
+  post_image: {
+    type: String,
+    required: true,
+  },
+  post_author: {
+    type: String,
+    required: true,
+  },
   post_category: {
     type: String,
     required: true,
