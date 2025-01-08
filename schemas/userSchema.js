@@ -25,10 +25,7 @@ const userSchema = new mongoose.Schema({
     },
     default: "applicant",
   },
-  createdAt: {
-    type: String,
-    default: moment().format("MMM Do YYYY"),
-  },
+
 });
 
 module.exports = userSchema;
