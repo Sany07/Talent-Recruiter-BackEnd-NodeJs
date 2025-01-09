@@ -49,17 +49,7 @@ const updateUserRole = async (req, res, next) => {
     next(error);
   }
 };
-// delete user
-const deleteUser = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const user = await User.findByIdAndDelete(id);
-    res.status(200).json({ user });
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-};
+
 
 // warning for user
 const warningUser = async (req, res, next) => {
