@@ -89,16 +89,7 @@ const updatePost = async (req, res, next) => {
   }
 };
 // delete a post
-const deletePost = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    await BlogPost.findByIdAndDelete(id);
-    res.status(200).json({ message: "Post deleted successfully" });
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-};
+
 
 module.exports = {
   addBlog,

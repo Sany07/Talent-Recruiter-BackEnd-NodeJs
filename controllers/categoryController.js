@@ -37,29 +37,7 @@ const createCategory = asyncHandler(async (req, res, next) => {
     next(err);
   }
 });
-// delete category by admin
-const deleteCategory = asyncHandler(async (req, res, next) => {
-    const { id } = req.params;
-    console.log(id);
-  try {
-    const category = await Category.findByIdAndDelete(id);
-    if (category) {
-      res.status(200).json({
-        success: true,
-        message: "Category deleted successfully",
-        category,
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-        message: "Category not found",
-      });
-    }
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-});
+
 
 module.exports = {
   getAllCategory,
