@@ -45,7 +45,11 @@ app.use("/api/email-campaign", emailCampaign); //for email campaign
 app.use("/api/user", userRoute); //for login and register
 app.use("/api/search", searchRoute); //for search result
 app.use("/api/jobs/", jobRoute);
-
+app.use("/api/category/", category);
+app.use("/api/applicant/", applicantRoute);
+app.use("/api/recruiter/", recruiterRoute);
+app.use("/api/feature/jobs", featureJobsRoute);
+app.use("/api/create-payment", createPayment);
 
 // All default error handling function
 function errorHandler(err, req, res, next) {
