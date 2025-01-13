@@ -31,7 +31,6 @@ console.log(UPLOAD_FOLDER,"hello upload")
       fileSize: max_file_size,
     },
     fileFilter: (req, file, cb) => {
-      // console.log(file.mimetype,"file mime type");
       if (allowed_file_type.includes(file.mimetype)) {
         cb(null, true);
       } else {
