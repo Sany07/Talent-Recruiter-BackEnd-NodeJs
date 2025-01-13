@@ -4,7 +4,10 @@ const roleAuthCheck = (req, res, next) => {
     switch (role) {
       case "admin":
         return next();
-
+      case "recruiter":
+        return next();
+      case "applicant":
+        return next();
       default:
         next("authorization failed");
     }
