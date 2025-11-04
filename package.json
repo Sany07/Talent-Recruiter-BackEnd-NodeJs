@@ -1,7 +1,7 @@
 {
-  "name": "talent-recruiter-server",
+  "name": "Talent-recruiter",
   "version": "1.0.0",
-  "description": "This is job hunting website for job seeker",
+  "description": "This is a job hunting, Posting website",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
