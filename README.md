@@ -1,6 +1,15 @@
 # Talent Recruiter BackEnd
 Talent Recruiter BackEnd.   
 
+```
+Technologies  
+```
+* NodeJS
+* Express
+* MongoDB
+* Jwt
+* Stripe
+
 ## Installation 
 
 ```
