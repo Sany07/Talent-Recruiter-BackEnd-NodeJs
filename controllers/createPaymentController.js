@@ -1,26 +1,28 @@
-const stripe = require("stripe")(
-  "sk_test_51HOOgiJm9OErWZzlNlYiQmBqmAmpPNUeHIuC4YDrPpP2wj3OrxDrMtkn7a8k0nrZENnoSTCbnjSVhUnrrNYUBRNG00mIpWzqnj",
-); // This is a public sample test API key.
+require("dotenv").config();
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const createPayment = async (req, res, next) => {
   try {
-      const { amount, currency } = req.headers;
-      console.log(amount,"currency");
-    if (amount && currency) {
-      const paymentIntent = await stripe.paymentIntents.create({
-        amount: amount * 100,
-        currency: `${currency}`,
-      });
-      res.send({
-        clientSecret: paymentIntent.client_secret,
-      });
+    const { amount, currency } = req.body; // Use body instead of headers
+    console.log("Received:", amount, currency);
+
+    if (!amount || !currency) {
+      return res.status(400).json({ error: "Amount and currency are required." });
     }
+
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: Math.round(amount * 100), // Stripe expects amount in cents
+      currency,
+      automatic_payment_methods: { enabled: true }, // Optional, recommended
+    });
+
+    res.json({
+      clientSecret: paymentIntent.client_secret,
+    });
   } catch (error) {
-    console.log("from payment", error);
+    console.error("Payment error:", error);
     next(error);
   }
 };
 
-module.exports = {
-  createPayment,
-};
+module.exports = { createPayment };
