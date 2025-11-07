@@ -14,7 +14,7 @@
     "express",
     "mongoose"
   ],
-  "author": "alpha infinity team",
+  "author": "Talent-recruiter",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
